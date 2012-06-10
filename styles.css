@@ -1,0 +1,23 @@
+body
+{
+font-size:75%;
+font-family:verdana,arial,'sans serif'; 
+background-color:#F5F5F5;
+color:#000000;
+margin:10px;
+}
+
+h1 {font-size:200%;}
+h2 {font-size:140%;}
+h3 {font-size:110%;}
+
+th {background-color:#D3D3D3;}
+td {background-color:#F5F5F5;}
+
+a:link {color:#0C8CD2;text-decoration:none;}
+a:hover {font-weight:bold;text-decoration:none;}
+a:visited {color:#0C8CD2;text-decoration:none;}
+
+.logout a:visited {color:#2C5C72;}
+.logout a:link {color:#0C5C72;}
+.logout a:hover {color:#0C5C72; text-decoration:underline; font-weight: normal;}
