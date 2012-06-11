@@ -5,18 +5,15 @@ header("location:login.php"); }
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
-?>
 
-<html>
-<head>
-
-<?PHP
 if (isset($_POST['bUpdate'])) {
 	$id = $_POST['idSelect'];
 } else {
 	$id = 0; }
 ?>
 
+<html>
+<head>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <style type="text/css">
 table
@@ -27,12 +24,12 @@ table
 }
 table,th,td
 {
-	border:1px solid black;
+	border:1px solid gray;
 }
 td
 {
 	padding:3px;
-	text-align:center;
+	text-align:left;
 }
 </style>
 </head>
@@ -56,7 +53,7 @@ include 'filter.php'; ?>
 
 <?php echo "<table>";
 if ($id == 0) {
-$query = "SELECT * FROM stock"; }
+$query = "SELECT * FROM stock ORDER BY parentsys"; }
 else {
 $query = "SELECT * FROM stock WHERE id=$id"; }
 
