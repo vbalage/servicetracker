@@ -2,6 +2,9 @@
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
+// forward to login page if session expired
+if(!session_is_registered(myusername)){
+header("location:login.php"); }
 
 include 'config.php';
 session_start();

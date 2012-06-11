@@ -14,7 +14,7 @@ $result = mysql_query($query);
 <body>
 <h3>Add item</h3>
 
-<FORM NAME ="Additem" METHOD ="POST" ACTION = "additem.php">
+<FORM NAME ="Additem" METHOD ="POST" ACTION = "additem_action.php">
 	<table><tr><td>	On stock: </td>
 	<td><INPUT TYPE = "TEXT" VALUE ="0" SIZE = 1 NAME = "onstock"></td></tr>
 	<tr><td>Manufacturer: </td>
@@ -24,7 +24,7 @@ $result = mysql_query($query);
 	<tr><td>S/N : </td>
 	<td><INPUT TYPE = "TEXT" SIZE = 30 NAME = "serialnum"></td></tr>
 	<tr><td>Description : </td>
-	<td><textarea rows="10" cols="30"></textarea></td></tr>
+	<td><textarea NAME = "description" rows="10" cols="30"></textarea></td></tr>
 	<tr><td>Parent system: </td>
 	<td><select name="parentsys">
 		<option value=1>NanoSPECT/CT</option>
@@ -34,7 +34,7 @@ $result = mysql_query($query);
 		<option value=5">Acquisition PC</option>
 	</select></td></tr>
 	</table>
-	<INPUT TYPE = "Submit" Name = "bUpdate" VALUE = "Update">
+	<INPUT TYPE = "Submit" Name = "bUpdate" VALUE = "Add item">
 	
 </FORM>
 
