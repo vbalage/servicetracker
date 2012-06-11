@@ -14,7 +14,7 @@ header("location:login.php");
 
 <div id="main">
 <div id="header" style="text-align:center;">
-<h1 style="margin-bottom:5px; color:#62C2C2; font-size:1.4em;">Service Tracker</h1></div>
+<h1 style="margin-bottom:5px; color:#62C2C2; font-size:1.5em;">Service Tracker</h1></div>
 
 <div id="menu" style="width:150px;float:left;">
 <?php
