@@ -1,60 +1,43 @@
-<?php 
-// show all errors while still developing: 
-ini_set('display_errors', 1); 
-error_reporting(E_ALL); 
-
-if (isset($_POST['bUpdate'])) {
-	$id = $_POST['idSelect'];
+<?php if (isset($_POST['customer'])) {
+	$selection = $_POST['customer'];
 } else {
-	$id = 0; }
+	$selection = 0;
+	}
+
+$query = "SELECT customer_short FROM customer ORDER BY customer_short";
+$result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 ?>
 
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-		<!--<style type="text/css">
-		table
-		{
-			border-collapse:collapse;
-			width:100%;
-			font-size:125%;
-		}
-		table,th,td
-		{
-			border:1px solid gray;
-		}
-		td
-		{
-			padding:3px;
-			text-align:left;
-		}
-		</style>-->
-		<style type="text/css">
-		td
-		{
-			padding:3px;
-			text-align:left;
-		}
-		</style>
-	</head>
 
-	<body>
-		<h2>Inventory</h2>
-		<?php 
-		// show all errors while still developing: 
-		ini_set('display_errors', 1); 
-		error_reporting(E_ALL); 
-		// use require instead of include since rest of script depends on this: 
-		include 'config.php'; 
-		mysql_connect("localhost","$username","$password") or 
-			die("DB connection failed - " . mysql_error()); 
-		mysql_select_db("$db_name") or die ("DB select failed - " . mysql_error()); 
+
+
+<?php 
+if ($what == "customer") {
+?>
+
+<FORM NAME ="chooseCustomer" METHOD ="POST" ACTION = "">
+Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit();">
+		<?php
+		echo "<option value=0>All</option>";
+		$i = 1;
+		while($row = mysql_fetch_assoc($result)) {
+			$string = "<option value=$i";
+			if($selection == $i) {$string = $string . " SELECTED";}
+			$string = $string . ">" . $row['customer_short'] . "</option>";
+			echo $string;
+			$i++;
+		} 
 		?>
+</select></FORM>
 
-		<?php echo "<table>";
 
-		if ($id == 0) {	$query = "SELECT id, onstock, manufacturer, serialnum, description, parentsys FROM stock ORDER BY parentsys"; }
-		else { $query = "SELECT * FROM stock WHERE id=$id"; }
+<?php
+echo "<table>";
+		if ($selection == 0) {
+		$query = "SELECT * FROM customer"; }
+		else {
+		$query = "SELECT * FROM customer WHERE id=$selection";}
+
 		$result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 			
 		if(mysql_num_rows($result)) 
@@ -105,14 +88,8 @@ if (isset($_POST['bUpdate'])) {
 		{ 
 		   echo "<p>No matches were found in the database for your query.</p>\n"; 
 		}
-		echo "</table>"; ?>
+		echo "</table>"; 
+}		
+?>
 
-		<br />
-		<!--
-		<FORM NAME ="IDfilter" METHOD ="POST" ACTION = "parttracker.php">
-			<INPUT TYPE = "TEXT" VALUE ="0" SIZE = 1 NAME = "idSelect">
-			<INPUT TYPE = "Submit" Name = "bUpdate" VALUE = "Update">
-		</FORM>
-		-->
-	</body>
-</html>
+		

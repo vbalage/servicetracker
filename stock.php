@@ -1,10 +1,17 @@
-<!DOCTYPE html>
 
-<?php
-session_start();
+
+<?php session_start();
 if(!session_is_registered(myusername)){
-header("location:login.php");
-}?>
+header("location:login.php"); }
+
+// show all errors while still developing: 
+ini_set('display_errors', 1); 
+error_reporting(E_ALL); 
+
+include 'config.php';
+mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+mysql_select_db("$db_name")or die("cannot select DB");
+?>
 
 <html>
 <head>
@@ -21,7 +28,9 @@ header("location:login.php");
 	
 	<div id="wrapper">
 		<div id="content">
-			<iframe src="welcome.php" frameborder="0" name="contents" style="width:100%; height:100%;"></iframe>
+			<?php 
+			include 'parttracker.php';
+			?>
 		</div>
 	</div>
 		
@@ -32,6 +41,7 @@ header("location:login.php");
 	</div>
 	
 	<div id="extra">
+		<?php include 'filter.php'; ?>
 	</div>
 	
 	<div id="footer">
@@ -44,3 +54,7 @@ header("location:login.php");
 </body>
 
 </html>
+
+
+
+

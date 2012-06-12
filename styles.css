@@ -1,7 +1,28 @@
+div#header{background-color:#F3F2ED;}
+div#header h1{height:60px;line-height:60px;margin:0;padding-left:10px;}
+
+div#container{text-align:left;}
+div#container{width:100%;margin:0 auto}
+
+div#content p{line-height:1.4; margin-bottom:5px;}
+div#content{float:right;width:88%}
+
+div#menu{background:#F6F0E0;float:left;height:80%;width:12%}
+div#menu ul{margin:15px; padding:0; list-style-type:none;}
+div#menu li{margin-bottom:5px;}
+
+
+div#footer{background:#BFBD93;text-align:center;}
+div#footer p{margin:0;padding:5px 10px}
+div#footer{clear:both;width:100%}
+
+div#extra{background:#CCC8B3;}
+div#extra{float:right;width:88%}
+
 body
 {
-font-size:75%;
-font-family:verdana,arial,'sans serif'; 
+font-size:80%;
+font-family:"Calibri",verdana,arial,'sans serif'; 
 background-color:#F5F5F5;
 color:#000000;
 margin:10px;
@@ -11,8 +32,9 @@ h1 {font-size:200%;}
 h2 {font-size:140%;}
 h3 {font-size:110%;}
 
-th {background-color:#D3D3D3;}
-td {background-color:#F5F5F5;}
+th {background-color:#cfe8ed;}
+td {background-color:#FFFFFF; font-size:80%}
+td#stock {text-align:center;}
 
 a:link {color:#0C8CD2;text-decoration:none;}
 a:hover {font-weight:bold;text-decoration:none;}
@@ -21,3 +43,4 @@ a:visited {color:#0C8CD2;text-decoration:none;}
 .logout a:visited {color:#2C5C72;}
 .logout a:link {color:#0C5C72;}
 .logout a:hover {color:#0C5C72; text-decoration:underline; font-weight: normal;}
+
