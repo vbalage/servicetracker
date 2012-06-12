@@ -15,6 +15,19 @@ mysql_select_db("$db_name")or die("cannot select DB");
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-<h2>Device database</h2>
+
+<?php 
+$tolist = $_GET['what']; 
+if ($tolist == "all") {
+	echo "<h2>Devices</h2>";
+}
+elseif ($tolist == "customer") {
+	echo "<h2>Customers</h2>";
+}
+elseif ($tolist == "sw") {
+	echo "<h2>Software versions</h2>";
+}
+?>
+
 </body>
 </html>

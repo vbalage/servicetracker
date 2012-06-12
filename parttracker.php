@@ -50,7 +50,6 @@ mysql_select_db("$db_name") or die ("DB select failed - " . mysql_error());
 
 include 'filter.php'; ?>
 
-
 <?php echo "<table>";
 if ($id == 0) {
 $query = "SELECT * FROM stock ORDER BY parentsys"; }

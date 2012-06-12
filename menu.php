@@ -18,8 +18,8 @@ error_reporting(E_ALL);
 
 <p>
 <a href="listdb.php?what=all" style="text-decoration:none;" title="Show items on stock" target="contents">Device database</a><br>
-<a href="listdb.php?what=sw" style="text-decoration:none;" title="Show customer info" target="contents">Customers</a><br>
-<a href="listdb.php?what=customer" style="text-decoration:none;" title="Show camera software versions" target="contents">Software versions</a><br>
+<a href="listdb.php?what=customer" style="text-decoration:none;" title="Show customer info" target="contents">Customers</a><br>
+<a href="listdb.php?what=sw" style="text-decoration:none;" title="Show camera software versions" target="contents">Software versions</a><br>
 <a href="parttracker.php" style="text-decoration:none;" title="Show items on stock" target="contents">Inventory</a><br>
 <a href='additem.php' style="text-decoration:none;" target="contents">Add item</a>
 </p>
