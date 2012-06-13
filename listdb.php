@@ -30,22 +30,19 @@ mysql_select_db("$db_name")or die("cannot select DB");
 		<div id="content">
 			<?php 
 			$tolist = $_GET['what']; 
-			if ($tolist == "all") {
+			if ($tolist == "devices") {
 				echo "<h2>Devices</h2>";
+				include 'devices.php';
 			}
-			elseif ($tolist == "customer") {
+			elseif ($tolist == "customers") {
 				echo "<h2>Customers</h2>";
+				include 'customers.php';
 			}
 			elseif ($tolist == "sw") {
 				echo "<h2>Software versions</h2>";
 			}
 			?>
-			
-			<?php 
-			$what = $_GET['what']; 
-			include 'list.php';
-			?>
-			
+		
 		</div>
 	</div>
 		

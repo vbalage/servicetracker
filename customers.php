@@ -9,10 +9,6 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 ?>
 
 
-
-
-
-
 <FORM NAME ="chooseCustomer" METHOD ="POST" ACTION = "">
 Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit();">
 		<?php

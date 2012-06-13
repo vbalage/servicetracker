@@ -11,8 +11,8 @@ error_reporting(E_ALL);
 
 <body>
 
-<a href="listdb.php?what=all" title="Show items on stock">Device database</a><br>
-<a href="listdb.php?what=customer" title="Show customer info">Customers</a><br>
+<a href="listdb.php?what=devices" title="Show items on stock">Device database</a><br>
+<a href="listdb.php?what=customers" title="Show customer info">Customers</a><br>
 <a href="listdb.php?what=sw" title="Show camera software versions">Software versions</a><br>
 <a href="stock.php" title="Show items on stock">Inventory</a><br>
 <a href='add.php?mode=add'>Add item</a>
