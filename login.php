@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style3.css" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
 <table width="300" border="0" bgcolor="##0C8CD2" align="center" cellpadding="0" cellspacing="1">

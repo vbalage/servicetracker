@@ -4,7 +4,7 @@
 	$selection = 0;
 	}
 
-$query = "SELECT customer_short FROM customer ORDER BY customer_short";
+$query = "SELECT id,customer_short FROM customer ORDER BY customer_short";
 $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 ?>
 
@@ -15,8 +15,9 @@ Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit(
 		echo "<option value=0>All</option>";
 		$i = 1;
 		while($row = mysql_fetch_assoc($result)) {
-			$string = "<option value=$i";
-			if($selection == $i) {$string = $string . " SELECTED";}
+			$cust_id = $row['id'];
+			$string = "<option value=$cust_id";
+			if($selection == $cust_id) {$string = $string . " SELECTED";}
 			$string = $string . ">" . $row['customer_short'] . "</option>";
 			echo $string;
 			$i++;

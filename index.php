@@ -21,7 +21,8 @@ header("location:login.php");
 	
 	<div id="wrapper">
 		<div id="content">
-			<iframe src="welcome.php" frameborder="0" name="contents" style="width:100%; height:100%;"></iframe>
+			<!--<iframe src="welcome.php" frameborder="0" name="contents" style="width:100%; height:100%;"></iframe>-->
+		<?php include 'welcome.php'; ?>
 		</div>
 	</div>
 		

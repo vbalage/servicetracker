@@ -1,18 +1,18 @@
 div#header{background-color:#cfe8ed;}
-div#header h1{height:60px;line-height:60px;margin:0;padding-left:10px;}
+div#header h1{height:60px;line-height:60px;margin:0;padding-left:15px;}
 /*div#header {background-image: url(./img/headerbg_green.png); background-repeat: repeat-x; }*/
 
 div#container{text-align:left;}
 div#container{width:100%;margin:0 auto}
 
-div#content p{line-height:1.4; margin-bottom:5px;}
-div#content{float:right;width:88%}
+div#content p{line-height:1.4; margin-bottom:5px;margin-left: 15px;margin-top: 15px;}
+div#content h2{}
+div#content{float:right;width:88%;}
 /*div#content {background-image: url(./img/contentbg.png); background-repeat: repeat-x; }*/
 
-div#menu{background:#F6F0E0;float:left;height:80%;width:12%}
+div#menu{background:#F6F0E0;float:left;height:80%;width:12%;}
 div#menu ul{margin:15px; padding:0; list-style-type:none;}
 div#menu li{margin-bottom:5px;}
-
 
 div#footer{background:#cfe8ed;text-align:center;}
 div#footer p{margin:0;padding:5px 10px}
