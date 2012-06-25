@@ -1,11 +1,11 @@
 <?php 
-session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php"); } 
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
+
+include 'session_check.php';
 include 'config.php';
+
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 ?>
@@ -32,11 +32,11 @@ mysql_select_db("$db_name")or die("cannot select DB");
 			$stat = mysql_query("INSERT INTO stock (onstock, manufacturer, product, serialnum, description, parentsys ) VALUES ($onstock, '$manufacturer', '$product', '$serialnum', '$description', '$parentsys') ");
 		}
 		
-		
 		if($mode == "edit")  {
-			echo "Data modified";
+			echo "Record modified";
 		} else {
-			echo "Data added";
+			echo "Record added";
+			
 		}
 		?>
 

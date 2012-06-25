@@ -1,14 +1,13 @@
-
-
-<?php session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php"); }
-
+<!DOCTYPE html>
+<?php 
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
 
+include 'session_check.php';
+
 include 'config.php';
+
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 ?>
@@ -31,7 +30,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 			<?php 
 			$tolist = $_GET['what']; 
 			if ($tolist == "devices") {
-				echo "<h2>Devices</h2>";
+				//echo "<h2>Devices</h2>";
 				include 'devices.php';
 			}
 			elseif ($tolist == "customers") {

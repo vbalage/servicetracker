@@ -1,9 +1,10 @@
-<?php session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php"); }
+<!DOCTYPE html>
+<?php 
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
+
+include 'session_check.php';
 
 include 'config.php';
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -25,27 +26,23 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	
 	<div id="wrapper">
 		<div id="content">
-			<?php 
-			include 'additem.php';
-			?>
+			<?php include 'additem.php';?>
 		</div>
 	</div>
 		
 	<div id="menu">
-		<?php
-		include('menu.php');
-		?>
+		<?php include('menu.php');?>
 	</div>
 	
 	<div id="extra">
-		extra space for something like filter
+
 	</div>
 	
 	<div id="footer">
 		<?php include 'footer.php' ?>
 	</div>
 		
-	</div>
+
 </div>
 
 </body>

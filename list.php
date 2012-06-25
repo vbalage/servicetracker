@@ -1,4 +1,8 @@
-<?php if (isset($_POST['customer'])) {
+<?php 
+
+include 'session_check.php';
+
+if (isset($_POST['customer'])) {
 	$selection = $_POST['customer'];
 } else {
 	$selection = 0;
@@ -7,11 +11,6 @@
 $query = "SELECT customer_short FROM customer ORDER BY customer_short";
 $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 ?>
-
-
-
-
-
 
 <FORM NAME ="chooseCustomer" METHOD ="POST" ACTION = "">
 Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit();">

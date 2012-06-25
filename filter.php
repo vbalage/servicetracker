@@ -1,4 +1,4 @@
-
+<?php include 'session_check.php'; ?>
 
 <div id = "filter" style="float:left;">
 	Filter</br>
@@ -21,6 +21,6 @@
 	</select>
 </div>
 <div id="ops" style="float:left;padding-left:25px;">
-Operations</br>
-<a href=add.php?mode=add"><img src="img/addico2.png"></a>
+	Operations</br>
+	<a href=add.php?mode=add"><img src="img/addico2.png"></a>
 </div>

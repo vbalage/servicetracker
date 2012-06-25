@@ -1,4 +1,7 @@
-<?php if (isset($_POST['customer'])) {
+<?php
+include 'session_check.php';
+
+ if (isset($_POST['customer'])) {
 	$selection = $_POST['customer'];
 } else {
 	$selection = 0;
@@ -7,7 +10,6 @@
 $query = "SELECT id,customer_short FROM customer ORDER BY customer_short";
 $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 ?>
-
 
 <FORM NAME ="chooseCustomer" METHOD ="POST" ACTION = "">
 Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit();">
@@ -18,13 +20,12 @@ Customer: <select name="customer" id="customer" onchange="chooseCustomer.submit(
 			$cust_id = $row['id'];
 			$string = "<option value=$cust_id";
 			if($selection == $cust_id) {$string = $string . " SELECTED";}
-			$string = $string . ">" . $row['customer_short'] . "</option>";
+			$string = $string . ">" . $row['customer_short'] . "</option>
+			";
 			echo $string;
 			$i++;
-		} 
-		?>
+		} ?>
 </select></FORM>
-
 
 <?php
 echo "<table>";
@@ -61,12 +62,12 @@ echo "<table>";
 				for($i=1; $i <= $numoffields+1; $i++) {
 					if($i < $numoffields) {
 						$data = $row[$fname[$i]];
-						if($fname[$i] == "onstock") {
+						/*if($fname[$i] == "onstock") {
 						echo ("<td id=\"stock\"><b>$data</b></td>");
-						} else {						
+						} else {	*/					
 						echo ("<td>$data</td>");
-						}		
-					} elseif($i == ($numoffields) )  {
+						//}		
+					} /*elseif($i == ($numoffields) )  {
 						$rowid = $row['id'];
 						$dellink = "<a href=\"del_stockitem.php?id=$rowid\"><img src=\"img/delico2.gif\"></a>";
 		  				echo ("<td>$dellink</td>");
@@ -74,7 +75,7 @@ echo "<table>";
 						$rowid = $row['id'];
 						$editlink = "<a href=\"add.php?id=$rowid&mode=edit\"><img src=\"img/editico.gif\"></a>";
 						echo ("<td>$editlink</td>");
-					}
+					}*/
 				}
 				echo "</tr>";
 		 	} 

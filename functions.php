@@ -1,4 +1,5 @@
 <?php
+include 'session_check.php';
 
 function getEnumNames($query) {
 

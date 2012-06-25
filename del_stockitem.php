@@ -1,11 +1,12 @@
-<?php session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php"); } 
-
+<?php 
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
+
+include 'session_check.php'; 
+
 include 'config.php';
+
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 ?>

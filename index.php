@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <?php
-session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php");
-}?>
+// show all errors while still developing: 
+ini_set('display_errors', 1); 
+error_reporting(E_ALL); 
+
+include 'session_check.php'; ?>
 
 <html>
 <head>
@@ -27,9 +27,7 @@ header("location:login.php");
 	</div>
 		
 	<div id="menu">
-		<?php
-		include('menu.php');
-		?>
+		<?php include 'menu.php'; ?>
 	</div>
 	
 	<div id="extra">

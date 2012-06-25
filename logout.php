@@ -2,12 +2,12 @@
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
+
 // forward to login page if session expired
-if(!session_is_registered(myusername)){
-header("location:login.php"); }
+include 'session_check.php';
 
 include 'config.php';
-session_start();
+
 ?>
 
 
@@ -25,6 +25,7 @@ $tmp = $_SESSION['name'];
 mysql_query("INSERT INTO log (direction, who, success) VALUES (2, '$tmp', 1)");
 mysql_close($con);
 session_destroy();
+unset($_SESSION['name']);
 ?>
 
 Successfully logged out

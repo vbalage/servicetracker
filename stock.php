@@ -1,14 +1,13 @@
-
-
-<?php session_start();
-if(!session_is_registered(myusername)){
-header("location:login.php"); }
-
+<!DOCTYPE html>
+<?php 
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
 
+include 'session_check.php';
+
 include 'config.php';
+
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 ?>
@@ -28,13 +27,11 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	
 	<div id="wrapper">
 		<div id="content">
-			<?php 
-			include 'parttracker.php';
-			?>
+			<?php include 'parttracker.php';?>
 		</div>
 	</div>
 		
-	<div id="menu">
+	<div id="menu" style="min-height:80%;">
 		<?php
 		include('menu.php');
 		?>
