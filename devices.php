@@ -1,8 +1,11 @@
 <?php 
 include 'session_check.php';
+include 'functions.php';
 
 if (isset($_POST['camera'])) {
 	$selection = $_POST['camera'];
+} elseif (isset($_GET['selection'])) {
+	$selection = $_GET['selection'];
 } else {
 	$selection = 1;
 }
@@ -16,9 +19,10 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 		<?php
 		$i = 0;
 		while($row = mysql_fetch_assoc($result)) {
-			$string = "<option value=$i";
-			if($selection == $i) {$string = $string . " SELECTED"; $selected_id = $row['id'];}
-			$string = $string . ">" . $row['customer_short'] . " - " . $row['serialnum'] . "</option>";
+			$string = "<option value=" . $row['id'];
+			if($selection == $row['id']) {$string = $string . " SELECTED"; $selected_id = $row['id'];}
+			$string = $string . ">" . $row['customer_short'] . " - " . $row['serialnum'] . "</option>
+";
 			echo $string;
 			$i++;
 		} 
@@ -44,7 +48,7 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 	echo "Camera S/N: " . $result['serialnum'] . "</br>";
 	echo "Workstation S/N: " . $result['ws_serialnum'] . "</br>";
 	echo "</p>";
-	?>
+	addEditIcon($selected_id, "camera");?>
 </div>
 
 <div id="tile">
@@ -71,15 +75,18 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 		// Delete last empty one
 		array_pop($array);
 
+		if(getCameraType($selected_id) == "NanoPET/CT") {$sw_iter = 4;} 
+		else {$sw_iter = 3;} 
+
 		echo "<table id=\"tile\">";
-		for ($i = 0; $i < 4; $i++) {
+		for ($i = 0; $i < $sw_iter; $i++) {
 			echo "<tr>";	
 			echo "<td>" . $array[$i]['system'] . "</td><td>" . $array[$i]['version'] . "</td>";
-			
 		}
 		echo "</table>";
 	} 
-	else { echo "<p>No software version information is available";}?>
+	else { echo "<p>No software version information is available";}
+	addEditIcon($selected_id, "swver");?>
 </div>
 <div id="tile">
 	<h3 class="centered">Firmware versions</h3>
@@ -87,7 +94,7 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 	if( mysql_num_rows( mysql_query("SHOW TABLES LIKE '".$ver_table."'"))) {
 
 		echo "<table id=\"tile\">";
-		for ($i = 4; $i < sizeof($array); $i++) {
+		for ($i = $sw_iter; $i < sizeof($array); $i++) {
 			echo "<tr>";
 			echo "<td>" . $array[$i]['system'] . "</td><td>" . $array[$i]['version'] . "</td>";
 			echo "</tr>";		
@@ -95,8 +102,18 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 		echo "</table>";
 	}	
 	else { echo "<p>No firmware version information is available";}
+	addEditIcon($selected_id, "fwver");	
 	?>
 </div>
 
 
-
+<?php
+////////// FUNCTIONS /////////////////////////////////////////////////
+function addEditIcon($selected_id, $editstring) {
+	echo "<div style=\"text-align:right; margin-right:20px;\">";
+	//echo "	</br>";		
+	$link = "<a href=\"edit_page.php?id=$selected_id&toedit=$editstring\"><img src=\"img/editico.gif\"></a>"; 
+	echo $link;
+	echo "</div>";
+}
+?>

@@ -1,6 +1,6 @@
 div#header{background-color:#cfe8ed; margin: 0px;}
 div#header h1{height:60px;line-height:60px;margin:0;padding-left:15px;}
-div#header {background-image: url(./img/headerbg_green.png); background-repeat: repeat-x; }
+/*div#header {background-image: url(./img/HEADERBG2.png); background-repeat: repeat-x; }*/
 
 div#container{text-align:left;}
 div#container{width:100%;margin:0 auto;}
@@ -42,7 +42,7 @@ table#input_fields td{background-color:#F5F5F5;}
 table#input_fields{border-collapse:collapse;}
 
 table#tile {border-collapse:collapse; margin: 10px;}
-table#tile td{}
+table#tile td{padding:2px 5px 0px 5px;}
 
 th {background-color:#cfe8ed;}
 td {background-color:#FFFFFF; font-size:100%;padding:3px;}

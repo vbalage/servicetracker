@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<?php 
+<?php
 // show all errors while still developing: 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL); 
 
-include 'session_check.php';
-
-include 'config.php';
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
-?>
+include 'session_check.php'; ?>
 
 <html>
 <head>
@@ -26,35 +21,25 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	
 	<div id="wrapper">
 		<div id="content">
-			<?php 
-			if($_GET['mode']=="add") {
-				include 'additem.php';
-			} else {
-		
-			}
-			?>
+			<!--<iframe src="welcome.php" frameborder="0" name="contents" style="width:100%; height:100%;"></iframe>-->
+		<?php include 'edit_items.php'; ?>
 		</div>
 	</div>
 		
 	<div id="menu">
-		<?php include('menu.php');?>
+		<?php include 'menu.php'; ?>
 	</div>
 	
 	<div id="extra">
-
 	</div>
 	
 	<div id="footer">
 		<?php include 'footer.php' ?>
 	</div>
 		
-
+	</div>
 </div>
 
 </body>
 
 </html>
-
-
-
-

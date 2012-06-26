@@ -14,4 +14,14 @@ function getEnumNames($query) {
 	return $enumvalues;
 }
 
+function getCameraType($deviceID) {
+	$devtype = mysql_query("SELECT type FROM device WHERE id=$deviceID");
+	$devtype = (mysql_fetch_array($devtype));
+	return $devtype[0];
+}
+
+ 
+
+
+
 ?>

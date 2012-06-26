@@ -22,5 +22,5 @@
 </div>
 <div id="ops" style="float:left;padding-left:25px;">
 	Operations</br>
-	<a href=add.php?mode=add"><img src="img/addico2.png"></a>
+	<a href="add.php?mode=add"><img src="img/addico2.png"></a>
 </div>
