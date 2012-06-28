@@ -1,5 +1,6 @@
 div#header{background-color:#cfe8ed; margin: 0px;}
 div#header h1{height:60px;line-height:60px;margin:0;padding-left:15px;}
+div#header{box-shadow: 1px 1px 10px #888888;}
 /*div#header {background-image: url(./img/HEADERBG2.png); background-repeat: repeat-x; }*/
 
 div#container{text-align:left;}
@@ -11,7 +12,7 @@ div#content h3{margin-left: 15px; color:#207777;margin-right:15px;}
 
 /*div#content {background-image: url(./img/contentbg.png); background-repeat: repeat-x; }*/
 
-div#menu{float:left; height:100%; width:10%; }
+div#menu{float:left; height:100%; width:10%;}
 div#menu ul{margin:15px; padding:0; list-style-type:none;}
 div#menu li{margin-bottom:5px;}
 
@@ -22,9 +23,10 @@ div#footer{clear:both;width:100%}
 div#extra{background:#CCC8B3;}
 div#extra{float:right;width:90%; margin-top:10px; margin-bottom: 0px;}
 
-div#tile{float:left; background-color: #FFFFFF; height: 200px; border-radius: 15px;}
+div#tile{float:left; background-color: #FFFFFF; height: 200px; width:200px;border-radius: 15px;}
 div#tile{box-shadow: 1px 1px 3px #888888; margin: 3px;}
 
+div#devinfo{background-color: #90CCCC; margin-right:20px;}
 
 body {
 font-size:80%;

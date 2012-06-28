@@ -1,8 +1,4 @@
-<!--<!DOCTYPE html>-->
 <?php
-// show all errors while still developing: 
-//ini_set('display_errors', 1); 
-//error_reporting(E_ALL); 
 
 if (isset($_POST['submitChanges'])) {
 	include 'config.php';
@@ -12,26 +8,27 @@ if (isset($_POST['submitChanges'])) {
 	if ($_POST['whatToEdit'] != "camera") {	
 		
 		foreach($_POST as $key=>$value) {
-		if ($i >= (sizeof($_POST)-4) ) { break; } // -4 mert van 2 hidden es egy submit element az adatot tartalmazokon kivul
-		$query = "UPDATE " . $_POST['table_id'] .
-		" SET version=\"" . $value . "\" WHERE id=" . $key;
-		echo $query . "\n";	
-		mysql_query($query) or die("something went wrong: " . mysql_error());
-		$i++;
+			if ($i >= (sizeof($_POST)-4) ) { break; } // -4 mert van 3 hidden es egy submit element az adatot tartalmazokon kivul
+			$query = "UPDATE " . $_POST['table_id'] .
+			" SET version=\"" . $value . "\" WHERE id=" . $key;
+			echo $query . "\n";	
+			mysql_query($query) or die("something went wrong: " . mysql_error());
+			$i++;
 		}
+
 	} else {
 		$query = "UPDATE " . $_POST['table_id'] . " SET ";
 		$setText = "";		
 		foreach($_POST as $key=>$value) {
-			if ($i >= (sizeof($_POST)-4) ) { break; } // -4 mert van 2 hidden es egy submit element az adatot tartalmazokon kivul
+			if ($i >= (sizeof($_POST)-4) ) { break; } // -4 mert van 3 hidden es egy submit element az adatot tartalmazokon kivul
 			//echo $key . " | ";
-			$setText .= $key . "=" . $value;
+			$setText .= $key . "=\"" . $value. "\"";
 			$i++;
 			if ($i < (sizeof($_POST)-4) ) { $setText .= ", "; }
 		}
 		$query .= $setText . " WHERE id=" . $_POST['idToEdit'];
 		echo $query;
-		//mysql_query($query) or die("something went wrong: " . mysql_error());
+		mysql_query($query) or die("something went wrong: " . mysql_error());
 	}
 	echo "</br>Changes saved";
 }
@@ -81,11 +78,11 @@ $result = mysql_query($query);
 //echo mysql_num_rows($result) . "</br>";
 //echo mysql_num_fields($result);
 
-$link = "http://localhost/servicetracker/listdb.php?what=devices&selection=". $idToEdit;
+$link = "listdb.php?what=devices&selection=". $idToEdit;
+$camera_sn = mysql_query("SELECT serialnum FROM device WHERE id = $idToEdit");
+$camera_sn = mysql_fetch_assoc($camera_sn);
+echo "<h4>Editing " . $camera_sn['serialnum'] . "</h4>";
 ?>
-
-
-
 
 <FORM NAME="editEntry" METHOD="POST" ACTION="">	
 
@@ -135,6 +132,7 @@ switch($whatToEdit) {
 <INPUT TYPE = "SUBMIT" NAME = "submitChanges" VALUE = "Submit">
 </FORM>
 
+</br>
 <a href="<?php print $link ?>">Back</a>
 
 

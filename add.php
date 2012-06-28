@@ -26,13 +26,7 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	
 	<div id="wrapper">
 		<div id="content">
-			<?php 
-			if($_GET['mode']=="add") {
-				include 'additem.php';
-			} else {
-		
-			}
-			?>
+			<?php include 'additem.php';?>
 		</div>
 	</div>
 		

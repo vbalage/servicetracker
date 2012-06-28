@@ -6,8 +6,34 @@ mysql_connect("localhost","$username","$password") or
         die("DB connection failed - " . mysql_error()); 
 mysql_select_db("$db_name") or die ("DB select failed - " . mysql_error());
 
-$stock_val = 1;
+if (isset($_POST['bUpdate'])) {
+	$mode = $_POST['mode'];
+	$onstock = $_POST['onstock'];
+	$manufacturer = $_POST['manufacturer'];
+	$product = $_POST['product'];
+	$serialnum = $_POST['serialnum'];
+	$description = $_POST['description'];
+	$parentsys = $_POST['parentsys'];
+	$idtoedit = $_POST['id'];
+
+	if($mode == "edit") {
+		$stat = mysql_query("UPDATE stock SET onstock = $onstock, manufacturer = '$manufacturer', product = '$product', serialnum = '$serialnum', description = '$description', parentsys = '$parentsys' WHERE id=$idtoedit ");	
+	} else {
+		$stat = mysql_query("INSERT INTO stock (onstock, manufacturer, product, serialnum, description, parentsys ) VALUES ($onstock, '$manufacturer', '$product', '$serialnum', '$description', '$parentsys') ");
+	}
+	
+	if($mode == "edit")  {
+		echo "Record modified";
+	} else {
+		echo "Record added";		
+	}
+} else {
+	
+}
+
 $mode = $_GET['mode'];
+$stock_val = 1;
+
 
 if($mode == "edit") {
 	$idtoedit = $_GET['id'];	
@@ -34,9 +60,10 @@ if($mode == "edit") {
 	echo "<h2>Edit item</h2>";
 } else {
 	echo "<h2>Add item</h2>"; } 
+
 ?>
 
-<FORM NAME ="Additem" METHOD ="POST" ACTION = "additem_action.php">
+<FORM NAME ="Additem" METHOD ="POST" ACTION = "add.php">
 	<table id="input_fields">
 	<tr><td style="font-size:100%;">On stock: </td>
 	<td><INPUT TYPE = "TEXT" VALUE = "<?php print $def_val[6]; ?>" SIZE = 1 NAME = "onstock"></td></tr>

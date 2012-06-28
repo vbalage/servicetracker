@@ -1,6 +1,6 @@
 <?php include 'session_check.php';?>
 <ul>
-	<li><a href="listdb.php?what=devices" title="Show items on stock">Device database</a></li>
+	<li><a href="listdb.php?what=devices" title="Show items on stock">Camera info</a></li>
 	
 
 

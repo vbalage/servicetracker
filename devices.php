@@ -30,8 +30,8 @@ $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error())
 </select></FORM> </p>
 
 
-<div style="background-color: #90CCCC; margin-right:20px;">
-	<p><b>Database info</b>
+<div id="devinfo">
+	<p><b>Development info</b>
 	<?php
 	$result = mysql_query("SELECT * FROM device, customer WHERE device.id= $selected_id AND device.customer_id = customer.id") or die("Query failed ($query) - " . mysql_error() );
 	$result = mysql_fetch_assoc($result);

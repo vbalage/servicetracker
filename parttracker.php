@@ -20,7 +20,7 @@ mysql_select_db("$db_name") or die ("DB select failed - " . mysql_error());
 
 echo "<table>";
 
-if ($id == 0) {	$query = "SELECT id, onstock, manufacturer, serialnum, description, parentsys FROM stock ORDER BY parentsys"; }
+if ($id == 0) {	$query = "SELECT id, onstock, product, manufacturer, serialnum, description, parentsys FROM stock ORDER BY parentsys"; }
 else { $query = "SELECT * FROM stock WHERE id=$id"; }
 $result = mysql_query($query) or die("Query failed ($query) - " . mysql_error()); 
 	
